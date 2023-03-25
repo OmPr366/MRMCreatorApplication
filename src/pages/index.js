@@ -18,6 +18,9 @@ export default function Home() {
       </Head>
       <main className=''>
         <Navbar/>
+        <div>
+          
+        </div>
       </main>
     </>
   )

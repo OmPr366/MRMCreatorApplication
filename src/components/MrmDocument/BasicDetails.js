@@ -1,5 +1,6 @@
 import React from "react";
 import CsvToJson from "../CsvToJson";
+import Body from "./Body"
 import { useDispatch, useSelector } from "react-redux";
 import { setCsvData } from "../../utils/Redux/CsvDataSlice";
 
@@ -51,6 +52,8 @@ const BasicDetails = () => {
             />
           </div>
         </div>
+
+        <Body/>
 
         {/* Upload file */}
         <div className="flex flex-col justify-center items-center mt-5">

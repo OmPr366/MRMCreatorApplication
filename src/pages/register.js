@@ -76,7 +76,6 @@ const register = () => {
             <button
               type="submit"
               className=" w-full mt-3 py-3 bg-blue-600 rounded-lg text-white text-lg m-1 mb-2"
-              
             >
               Send
             </button>
