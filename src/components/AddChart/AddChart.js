@@ -14,6 +14,10 @@ const AddChart = () => {
     { value: "Line", label: "Line Chart" },
     { value: "Bar", label: "Bar Chart" },
     { value: "Pie", label: "Pie Chart" },
+    { value: "Bubble", label: "Bubble Chart" },
+    { value: "Doughnut", label: "Doughnut Chart" },
+    { value: "PolarArea", label: "PolarArea Chart" },
+    { value: "Radar", label: "Radar Chart" },
   ];
 
   const [totalGraphs, setTotalGraphs] = React.useState([1]);
@@ -50,10 +54,11 @@ const AddChart = () => {
   }, [MrmData]);
   return (
     <div className="rounded-xl flex flex-col justify-center items-center bg-blue-200 m-4 pb-4 ">
+      <div className="flex flex-wrap justify-around" >
       {totalGraphs.map((graph, index) => {
         return (
           <div
-            className="flex flex-col justify-center items-center mb-4 border-b-2 "
+            className="flex flex-col justify-center items-center my-4 border-2   "
             key={index}
           >
             <div className="w-96 m-4">
@@ -132,7 +137,7 @@ const AddChart = () => {
             </div>
           </div>
         );
-      })}
+      })}</div>
       <div className="flex ">
         <button
           type="button"
