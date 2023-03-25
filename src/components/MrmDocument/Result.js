@@ -4,6 +4,10 @@ import React from "react";
 import VersionControl from "./MRMPages/VersionControl";
 import Intro from "./MRMPages/Intro";
 import Content from "./MRMPages/Content";
+import ModelRisk from "./MRMPages/ModelRisk";
+import Overview from "./MRMPages/Overview";
+import Performance from "./MRMPages/Performance";
+import CreateChart from "./MRMPages/CreateChart";
 
 const Result = () => {
   // Create a pdf file
@@ -26,6 +30,10 @@ const Result = () => {
         {/* page2 */}
         <VersionControl />
         <Content />
+        <ModelRisk/>
+        <Overview/>
+        <Performance/>
+        <CreateChart/>
       </div>
       </div>
 
