@@ -2,12 +2,12 @@ import React from "react";
 import CsvToJson from "../CsvToJson";
 import Body from "./Body"
 import { useDispatch, useSelector } from "react-redux";
-import { setCsvData } from "../../utils/Redux/CsvDataSlice";
+import {setDocument} from "../../utils/Redux/DocumentSlice";
 
 const BasicDetails = () => {
   const dispatch = useDispatch();
 
-  const csvData = useSelector((state) => state.CsvDataSlice);
+  const documentData = useSelector((state) => state.DocumentSlice);
 
   return (
     <div>
@@ -25,8 +25,8 @@ const BasicDetails = () => {
               name="title"
               onChange={(e) => {
                 dispatch(
-                  setCsvData({
-                    ...csvData,
+                  setDocument({
+                    ...documentData,
                     title: e.target.value,
                   })
                 );
@@ -43,8 +43,8 @@ const BasicDetails = () => {
               name="subTitle"
               onChange={(e) => {
                 dispatch(
-                  setCsvData({
-                    ...csvData,
+                  setDocument({
+                    ...documentData,
                     subTitle: e.target.value,
                   })
                 );

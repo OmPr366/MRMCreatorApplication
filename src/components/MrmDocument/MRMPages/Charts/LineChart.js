@@ -10,7 +10,7 @@ const LineChart = ({ labelIndex, dataSets }) => {
 
   console.log("CsvData :-", CsvData);
   const [chartData, setChartData] = React.useState({
-    labels: CsvData.slice(1).map((data) => data[labelIndex]),
+    labels: CsvData.length? CsvData?.slice(1)?.map((data) => data[labelIndex]):null,
     datasets: [],
   });
 

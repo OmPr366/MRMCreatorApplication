@@ -3,6 +3,7 @@ import Lottie from "lottie-react";
 import signupani from "../images/signup-ani.json";
 import Navbar from "../components/Nav/Navbar";
 import Link from "next/link";
+import signup from "../../actions/auth";
 
 const register = () => {
     const [user, setUser] = useState({
@@ -15,6 +16,22 @@ const register = () => {
     const handleInputs = (e) => {
       setUser({ ...user, [e.target.name]: e.target.value });
       console.log(e);
+    };
+
+    const registerHandler = async (e) => {
+      e.preventDefault();
+      const { name, email, phone, password, cpassword } = user;
+      signup({ name, email, phone, password, cpassword }).then((res) => {
+        if (res.status == 200) {
+          console.log("Status :- ", res);
+          localStorage.setItem("token", res.data.token);
+          router.push("/");
+        } else {
+          // Alert in web
+          console.log("Status :- ", res);
+          alert("Something went wrong! ");
+        }
+      });
     };
   return (
     <>
@@ -76,6 +93,8 @@ const register = () => {
             <button
               type="submit"
               className=" w-full mt-3 py-3 bg-blue-600 rounded-lg text-white text-lg m-1 mb-2"
+              onClick={registerHandler}
+              
             >
               Send
             </button>

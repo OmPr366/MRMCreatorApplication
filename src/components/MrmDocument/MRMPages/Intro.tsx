@@ -1,6 +1,6 @@
 import React from "react";
 
-const Intro = ({title}) => {
+const Intro = ({title,subTitle}) => {
   return (
     <div className="pdfBox">
       {/* title */}
@@ -9,7 +9,7 @@ const Intro = ({title}) => {
       </h1>
       {/* Subtitle */}
       <h2 className="text-2xl text-center font-medium	 mt-5 ">
-        Credit Line Decrease Model: Version 2
+        {subTitle}
       </h2>
       <h2 className="text-2xl text-center font-medium	 mt-4 ">
         Model Group : Customer Valuation Model 2
