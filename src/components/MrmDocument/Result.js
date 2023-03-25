@@ -14,15 +14,17 @@ const Result = () => {
 
   const dispatch = useDispatch();
 
-  const csvData = useSelector((state) => state.CsvDataSlice);
+  const documentData = useSelector((state) => state.DocumentSlice);
 
+  console.log("Document Data for testing:- ",documentData)
 
   return (
     <>
     <div className="w-screen flex flex-column justify-center ">
       <div id="pdf">
         {/* Page 1 */}
-        <Intro title={csvData.title} subTitle={csvData?.subTitle} />
+        {console.log("Title is:- ",documentData)}
+        <Intro title={documentData.title} subTitle={documentData?.subTitle} />
         {/* page2 */}
         <VersionControl />
         <Content />
