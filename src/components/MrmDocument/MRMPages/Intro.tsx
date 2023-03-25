@@ -1,11 +1,11 @@
 import React from "react";
 
-const Intro = () => {
+const Intro = ({title}) => {
   return (
     <div className="pdfBox">
       {/* title */}
       <h1 className="text-3xl underline font-bold text-center  ">
-        MODEL RISK MANAGEMENT DOCUMENT
+        {title}
       </h1>
       {/* Subtitle */}
       <h2 className="text-2xl text-center font-medium	 mt-5 ">

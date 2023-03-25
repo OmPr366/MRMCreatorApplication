@@ -11,25 +11,21 @@ import CreateChart from "./MRMPages/CreateChart";
 import DataPrep from "./MRMPages/DataPrep";
 import ModelSpec from "./MRMPages/ModelSpec";
 import ModelMethod from "./MRMPages/ModelMethod";
+import { useDispatch, useSelector } from "react-redux";
 
 const Result = () => {
-  // Create a pdf file
-  const downloadPdf = () => {
-    const input = document.getElementById("pdf");
-    html2canvas(input).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 0, 0);
-      pdf.save("download.pdf");
-    });
-  };
+
+  const dispatch = useDispatch();
+
+  const csvData = useSelector((state) => state.CsvDataSlice);
+
 
   return (
     <>
     <div className="w-screen flex flex-column justify-center ">
       <div id="pdf">
         {/* Page 1 */}
-        <Intro />
+        <Intro title={csvData.title} subTitle={csvData?.subTitle} />
         {/* page2 */}
         <VersionControl />
         <Content />

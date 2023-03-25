@@ -7,8 +7,13 @@ import PieChart from "./Charts/PieChart";
 import PolarAreaChart from "./Charts/PolarAreaChart";
 import RadarChart from "./Charts/RadarChart";
 import { UserData } from "./Data";
+import { useSelector, useDispatch } from "react-redux";
 
 const CreateChart = () => {
+
+  const dispatch = useDispatch();
+
+  const documentData = useSelector((state) => state.DocumentSlice);
      const [userData, setUserData] = useState({
        labels: UserData.map((data) => data.year),
        datasets: [
@@ -38,8 +43,24 @@ const CreateChart = () => {
        ],
      });
   return (
-    <div className="pdfBox">
-      <div className="chart">
+    <div >
+      {console.log(documentData?.graphData,"  Document data")}
+      {documentData?.graphData?.map((data,index) => {
+        return (
+          <div className="pdfBox" key={index}>
+            {data?.chartType === "Bar" && <BarChart data={data} labelIndex = {data?.label?data?.label:0}  dataSets={data?.dataSets} />}
+            {data?.chartType === "Bubble" && <BubbleChart data={data} labelIndex = {data?.label?data?.label:0}  dataSets={data?.dataSets} />}
+            {data?.chartType === "Line" && <LineChart data={data} labelIndex = {data?.label?data?.label:0}  dataSets={data?.dataSets} />}
+            {data?.chartType === "Doughnut" && <DoughnutChart data={data} labelIndex = {data?.label?data?.label:0}  dataSets={data?.dataSets} />}
+            {data?.chartType === "Pie" && <PieChart data={data} labelIndex = {data?.label?data?.label:0}  dataSets={data?.dataSets} />}
+            {data?.chartType === "PolarArea" && <PolarAreaChart data={data} labelIndex = {data?.label?data?.label:0}  dataSets={data?.dataSets} />}
+            {data?.chartType === "Radar" && <RadarChart data={data} labelIndex = {data?.label?data?.label:0}  dataSets={data?.dataSets} />}
+
+          </div>
+        );
+      })
+      }
+      {/* <div className="chart">
         <PolarAreaChart chartData={userData} />
       </div>
       <div className="chart">
@@ -59,7 +80,7 @@ const CreateChart = () => {
       </div>
       <div className="chart">
         <RadarChart chartData={userData} />
-      </div>
+      </div> */}
     </div>
   );
 }
