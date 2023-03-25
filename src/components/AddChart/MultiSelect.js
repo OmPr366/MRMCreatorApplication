@@ -1,18 +1,9 @@
-import React from 'react'
+import React from "react";
 import { useState } from "react";
 import Select from "react-select";
 
-const optionList = [
-  { value: "red", label: "Red" },
-  { value: "green", label: "Green" },
-  { value: "yellow", label: "Yellow" },
-  { value: "blue", label: "Blue" },
-  { value: "white", label: "White" },
-];
 
-
-
-const MultiSelect = ({ placeholder }) => {
+const MultiSelect = ({ placeholder, options }) => {
   const [selectedOptions, setSelectedOptions] = useState();
   function handleSelect(data) {
     setSelectedOptions(data);
@@ -20,10 +11,24 @@ const MultiSelect = ({ placeholder }) => {
   return (
     <div className="w-96 m-4">
       <Select
-        options={optionList}
+        options={options ? options : chartOptions}
         placeholder={placeholder}
         value={selectedOptions}
-        onChange={handleSelect}
+        onChange={(value) => {
+          // set documentData.graphData[index].chartType = value.value;
+          dispatch(
+            setDocument({
+              ...documentData,
+              graphData: documentData.graphData.map((item, i) => {
+                if (i === index) {
+                  return { ...item, label: value.value };
+                }
+                return item;
+              }),
+            })
+          );
+
+        }}
         isSearchable={true}
         isMulti
       />
@@ -31,4 +36,4 @@ const MultiSelect = ({ placeholder }) => {
   );
 };
 
-export default MultiSelect
+export default MultiSelect;

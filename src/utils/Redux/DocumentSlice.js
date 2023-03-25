@@ -2,7 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const DocumentSlice =  createSlice({
     name: "Document",
-    initialState: [],
+    initialState: {
+        graphData:[{
+            chartType: "Line",
+            label:"",
+            dataSets:[]
+        }],
+        title: "",
+        subTitle: "",
+    },
     reducers: {
         setDocument: (state, action) => {
             return action.payload

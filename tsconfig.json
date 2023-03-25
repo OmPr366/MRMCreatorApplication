@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/components/MrmDocument/Result.js"  ],
+, "src/components/MrmDocument/Result.js", "src/components/AddChart/AddChart.js", "src/components/CsvToJson.js"  ],
   "exclude": [
     "node_modules"
   ]
