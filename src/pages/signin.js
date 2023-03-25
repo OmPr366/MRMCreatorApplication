@@ -3,12 +3,29 @@ import Lottie from "lottie-react";
 import signupani from "../images/signup-ani.json";
 import Navbar from "../components/Nav/Navbar";
 import Link from "next/link";
+import { useRouter } from 'next/router'
+import { signin } from "../../actions/auth";
 
 const login = () => {
+  const router = useRouter()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = ()=>{
+
+    signin({email,password}).then((res)=>{
+      if(res.status==200){
+        console.log("Status :- ",res)
+        localStorage.setItem("token",res.data.token)
+        router.push("/")
+      }
+      else {
+        // Alert in web 
+        console.log("Status :- ",res)
+        alert("Invalid Credentials")
+      }
+    }
+    )
     
   }
   return (
