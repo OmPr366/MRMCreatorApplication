@@ -4,10 +4,14 @@ import { Inter } from 'next/font/google'
 import styles from '../styles/Home.module.css'
 import AddChart from '../components/AddChart/AddChart'
 import Navbar from '../components/Nav/Navbar'
+import MRMCard from '../components/MRMCard'
+import Link from 'next/link'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -16,12 +20,18 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=''>
-        <Navbar/>
-        <div>
-          
+      <main className="flex flex-col items-center justify-center">
+        <Navbar />
+        <div className="flex">
+          <MRMCard />
+          <MRMCard />
+          <MRMCard />
+        </div>
+
+        <div className="bg-green-400 text-white p-4 w-80 rounded-lg shadow-xl m-4 cursor-pointer">
+          <Link href="/generate">CLICK HERE TO GENERATE YOUR MRM.</Link>
         </div>
       </main>
     </>
-  )
+  );
 }
