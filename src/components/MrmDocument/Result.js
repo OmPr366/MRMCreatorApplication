@@ -8,6 +8,9 @@ import ModelRisk from "./MRMPages/ModelRisk";
 import Overview from "./MRMPages/Overview";
 import Performance from "./MRMPages/Performance";
 import CreateChart from "./MRMPages/CreateChart";
+import DataPrep from "./MRMPages/DataPrep";
+import ModelSpec from "./MRMPages/ModelSpec";
+import ModelMethod from "./MRMPages/ModelMethod";
 
 const Result = () => {
   // Create a pdf file
@@ -33,6 +36,9 @@ const Result = () => {
         <ModelRisk/>
         <Overview/>
         <Performance/>
+        <DataPrep/>
+        <ModelSpec/>
+        <ModelMethod/>
         <CreateChart/>
       </div>
       </div>
